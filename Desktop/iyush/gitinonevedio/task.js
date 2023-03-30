@@ -1,0 +1,28 @@
+//Examine the document object
+
+//console.dir(document); //to print all the properties and methods of the document object.
+// console.log(document.domail);
+// console.log(document.URL);
+// console.log(document.title);
+
+//GETELEMENTBYID//
+
+const ht = document.getElementById('header-title');
+console.log(ht);
+ht.innerText = 'Hello'; //innertext and textcontent are almost same but innertext pays more attention to styling 
+ht.textContent = 'Goodbye';
+ht.innerHTML = '<h1>Hii</h1>';
+const header = document.getElementById('main-header');
+ht.style.borderBottom = 'solid 3px #000';
+header.style.borderBottom = 'solid 3px #000';
+
+const items = document.getElementsByClassName('list-group-item');
+items[0].textContent = 'Text changed';
+items[0].style.fontWeigth = 'bold';
+items[1].style.backgroundColor = 'yellow';
+items[1].style.color = 'green';
+
+for(let i=0;i<items.length;i++){
+    items[i].style.color = 'green';
+    items[i].style.fontWeight = 'bold';
+}
