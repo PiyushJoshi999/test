@@ -1,7 +1,7 @@
 //Examine the document object
 
 //console.dir(document); //to print all the properties and methods of the document object.
-// console.log(document.domail);
+// console.log(document.domain);
 // console.log(document.URL);
 // console.log(document.title);
 
@@ -29,12 +29,59 @@
 // }
 
 //GETELEMENTSBYTAGNAME//
-const tg = document.getElementsByTagName('li');
-tg[0].textContent = 'Text changed';
-tg[0].style.fontWeigth = 'bold';
-tg[2].style.backgroundColor = 'green';
-tg[1].style.color = 'black'
-for(let i=0;i<tg.length;i++){
-    tg[i].style.color = 'black';
-    tg[i].style.fontWeight = 'bold';
+// const tg = document.getElementsByTagName('li');
+// tg[0].textContent = 'Text changed';
+// tg[0].style.fontWeigth = 'bold';
+// tg[2].style.backgroundColor = 'green';
+// tg[1].style.color = 'black';
+// for(let i=0;i<tg.length;i++){
+//     tg[i].style.color = 'black';
+//     tg[i].style.fontWeight = 'bold';
+// }
+
+//QUERYSELECTOR//
+//In query selector we can use all elements of the html like the class name, tag name etc.
+
+// const qs = document.querySelector('#main-header');
+// qs.style.borderBottom = 'solid 4px #000';
+
+// let input = querySelector('input');
+// input.value = 'Hello World';
+
+// let submit = document.querySelector('input[type="submit"]');
+// submit.value = 'Send';
+
+// const item = document.querySelector('.list-group-item');
+// item.style.color = 'red';
+
+// const lastItem = document.querySelector('.list-group-item:last-child');
+// lastItem.style.color = 'blue';
+
+const secondItem = document.querySelector('.list-group-item:nth-child(2)');
+secondItem.style.color = 'green';
+secondItem.style.fontWeight = 'bold';
+
+
+//QUERY SELECTOR ALL//
+
+const titles = document.querySelectorAll('.title');
+console.log(titles);
+titles[0].textContent = 'Hello';
+
+const odd = document.querySelectorAll('li:nth-child(odd)');
+
+for(let i=0;i<odd.length;i++){
+    odd[i].style.backgroundColor = 'green';
 }
+
+// const secItem = document.querySelectorAll('li:nth-child(2)');
+// secItem.style.color = 'green';
+
+
+
+
+
+
+
+
+
