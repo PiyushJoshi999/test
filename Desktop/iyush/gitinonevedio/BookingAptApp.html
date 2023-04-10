@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Appointment App</title>
+    <style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: lightseagreen;
+		}
+		
+		form {
+			background-color: lightblue;
+			max-width: 500px;
+			margin: 0 auto;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+		
+		h1 {
+			text-align: center;
+			color: #333;
+		}
+		
+		label {
+			display: block;
+			margin-bottom: 5px;
+			color: #555;
+		}
+		
+		input[type="text"],
+		input[type="email"],
+		input[type="tel"] {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 20px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+		}
+		
+		input[type="submit"] {
+			background-color: #333;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+		
+		input[type="submit"]:hover {
+			background-color: #555;
+		}
+
+
+    </style>
+
+<script src="BookingAptApp.js"></script>
+</head>
+<body>
+
+    <h1>User Information Form</h1>
+	<form name="myForm" onsubmit="return validateForm()">
+		<label for="first-name">First Name:</label>
+		<input type="text" id="first-name" name="first-name" required><br>
+
+		<label for="last-name">Last Name:</label>
+		<input type="text" id="last-name" name="last-name" required><br>
+
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" required><br>
+
+		<label for="phone">Phone Number:</label>
+		<input type="tel" id="phone" name="phone" required><br>
+
+		<input type="submit" value="Submit">
+	</form>
+
+    
+    
+</body>
+</html>
