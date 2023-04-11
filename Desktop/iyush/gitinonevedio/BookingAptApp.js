@@ -33,9 +33,26 @@
     }
 
     //Using JSON.stringify to convert the object into the string
-    localStorage.setItem('user', JSON.stringify(user));
+    //localStorage.setItem('user', JSON.stringify(user));
     //Converting string back into the normal javascript object.
-    let user_desearilized = JSON.parse(localStorage.getItem('user'));
+   // let user_desearilized = JSON.parse(localStorage.getItem('user'));
+
+   // Generating a unique key for each user object to store the users on large scale
+   let uniqueKey = 'user_' + user + '_' + Date.now(); // Using user ID and timestamp
+   localStorage.setItem(uniqueKey, JSON.stringify(user));
+
+
+   //We can also store the objects in the array and store it in the local storage with a single key.
+
+   // Retrieving existing user objects from local storage
+   //var existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+   // Adding a new user object to the array
+   //existingUsers.push(newUserObject);
+
+   // Storing the updated array back in local storage
+   //localStorage.setItem('users', JSON.stringify(existingUsers));
+
 
     //Redirecting the user to another page.
     //window.location.href = "success.html";
