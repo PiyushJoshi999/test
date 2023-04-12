@@ -30,7 +30,20 @@
 			margin-bottom: 5px;
 			color: #555;
 		}
-		
+
+        ul {
+            list-style: none;
+        }
+  
+        ul li {
+    padding: 5px;
+    background: #f4f4f4;
+    margin-bottom: 20px;
+    border-radius: 5px;
+        }
+  
+  
+  	
 		input[type="text"],
 		input[type="email"],
 		input[type="tel"] {
@@ -59,12 +72,12 @@
 
     </style>
 
-<script src="BookingAptApp.js"></script>
+
 </head>
 <body>
 
-    <h1>User Information Form</h1>
-	<form name="myForm" onsubmit="return validateForm()">
+    <h1>Booking Information Form</h1>
+	<form id="myForm" onsubmit="return validateForm()">
 		<label for="first-name">First Name:</label>
 		<input type="text" id="first-name" name="first-name" required><br>
 
@@ -80,7 +93,11 @@
 		<input type="submit" value="Submit">
 	</form>
 
+    <h2 class="title">Registered Members</h2>
+    <ul id="items" class="list-group">
+    </ul>
+
     
-    
+    <script src="Baptapp.js"></script>
 </body>
 </html>
