@@ -48,6 +48,22 @@ function loadBookedMembers() {
             listItem.textContent = "Name: " + user.firstName + " " + user.lastName +
                 ", Email: " + user.email + ", Phone: " + user.phone;
 
+                //Create a edit button for each user and add it to the list item:
+
+                const editButton = document.createElement('button');
+                editButton.className = "btn btn-primary btn-sm float-right edit";
+                editButton.textContent = "EDIT";
+                editButton.setAttribute("data-key", key);
+                editButton.addEventListener("click", function(){
+                    const keyToRemove = this.getAttribute("data-key");
+                    localStorage.removeItem(keyToRemove);
+                    document.getElementById("first-name").value = user.firstName;
+                    document.getElementById("last-name").value = user.lastName;
+                    document.getElementById("email").value = user.email;
+                    document.getElementById("phone").value = user.phone;
+
+                })
+
             // Create a delete button for each user and add it to the list item
             const deleteButton = document.createElement("button");
             deleteButton.className = "btn btn-danger btn-sm float-right delete";
@@ -60,6 +76,7 @@ function loadBookedMembers() {
                 loadBookedMembers(); // Reload the booked members list
             });
             listItem.appendChild(deleteButton);
+            listItem.appendChild(editButton);
 
             itemsList.appendChild(listItem);
         }
