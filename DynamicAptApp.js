@@ -64,4 +64,6 @@ function loadBookedMembers() {
 }
 
 // Initial load of booked members list when the page loads
-loadBookedMembers();
+window.addEventListener("DOMContentLoaded", () => {
+    loadBookedMembers();
+})
