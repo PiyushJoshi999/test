@@ -55,12 +55,32 @@ function loadBookedMembers() {
                <div>Email: ${user.email}</div>
                <div>Phone: ${user.phone}</div>
            `;
+
+           const deleteButton = document.createElement("button");
+           deleteButton.className = "btn btn-danger btn-sm float-right delete";
+           deleteButton.textContent = "DELETE";
+           deleteButton.dataset.id = user._id;
+        
+           deleteButton.addEventListener("click", function(event) {
+            const userId = event.target.dataset.id;
+            axios.delete(`https://crudcrud.com/api/615e9c3b084d4f0880e44a79c0cbe8fe/DynamicAptApp/${userId}`)
+            .then(() => {
+                li.remove();
+
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+           })
+
+           li.appendChild(deleteButton);
            itemsList.appendChild(li);
        });
    })
    .catch((err) => {
        console.log(err);
    });
+
 }
 
 // Initial load of booked members list when the page loads
