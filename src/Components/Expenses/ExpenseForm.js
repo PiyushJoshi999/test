@@ -5,20 +5,53 @@ const ExpenseForm = () => {
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
 
+
+    //Another way of storing user data using single state:
+    // const [userInput, setUserInput] = useState({
+    //     enteredTitle = '',
+    //     enteredAmount = '',
+    //     enteredDate = ''
+
+    // });
     const titleHandler = (event) => {
         setEnteredTitle(event.target.value);
+        // setUserInput({
+        //     ...userInput,
+        //     enteredTitle : event.target.value,
+        // })
     }
 
     const amountHandler = (event) => {
         setEnteredAmount(event.target.value);
+        // setUserInput({
+        //     ...userInput,
+        //     enteredAmount : event.target.value,
+        // })
+        
     }
 
     const dateHandler = (event) => {
         setEnteredDate(event.target.value);
+        // setUserInput({
+        //     ...userInput,
+        //     enteredDate : event.target.value,
+        // })
+    }
+
+    const submitHandler = (event) => {
+        event.preventDefault;
+
+        const expenseData = {
+            title : enteredTitle,
+            amount : enteredAmount,
+            date : new Date(enteredDate)
+        };
+        console.log(expenseData);
+
     }
 
     return (
-        <form>
+        <form onSubmit = {submitHandler}>
             <div className='my-form'>
                 <div className='my-form__title'>
                     <label >Expense Title</label>
