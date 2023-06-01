@@ -1,36 +1,35 @@
 
 import React, { useState } from 'react';
-import ExpenseItem from './Components/ExpenseItem';
-
+import Expenses from './Components/Expenses';
+import NewExpense from './Components/Expenses/NewExpense';
 const App = () => {
-  const expenses = [
-    { title: 'Car Insurance', amount: 399, location: 'Car', date: new Date(2023, 4, 24) },
-    { title: 'Toilet paper', amount: 100, location: 'Home', date: new Date(2023, 4, 23) },
-    { title: 'Toothpaste', amount: 150, location: 'Care', date: new Date(2023, 4, 22) },
-    { title: 'Dryfruits', amount: 500, location: 'Kitchen', date: new Date(2023, 4, 20) }
+  const dummyExpenses = [
+    { id : 'e1', title: 'Car Insurance', amount: 399, date: new Date(2022, 4, 24) },
+    { id : 'e2', title: 'Toilet paper', amount: 99, date: new Date(2022, 4, 23) },
+    { id : 'e3', title: 'Toothpaste', amount: 150, date: new Date(2021, 4, 22) },
+    { id : 'e4', title: 'Dryfruits', amount: 500, date: new Date(2020, 4, 20) }
   ];
 
-  const [expenseItems, setExpenseItems] = useState(expenses);
+  // const [expenseItems, setExpenseItems] = useState(expenses);
 
-  const deleteExpenseItem = (index) => {
-    const updatedItems = [...expenseItems];
-    updatedItems.splice(index, 1);
-    setExpenseItems(updatedItems);
-  };
+  // const deleteExpenseItem = (index) => {
+  //   const updatedItems = [...expenseItems];
+  //   updatedItems.splice(index, 1);
+  //   setExpenseItems(updatedItems);
+  // };
+   
+  const [expenses, setExpenses] = useState(dummyExpenses)
+  const addExpenseHandler = (expense) => {
+   setExpenses((prevExpenses) => {
+    return [expense, ...prevExpenses]
+   });
+  }
 
   return (
     <div>
-      <h2>Lets get started</h2>
-      {expenseItems.map((expense, index) => (
-        <ExpenseItem
-          key={index}
-          title={expense.title}
-          location={expense.location}
-          amount={expense.amount}
-          date={expense.date}
-          onDelete={() => deleteExpenseItem(index)}
-        />
-      ))}
+      <h2>Add your expense:</h2>
+      <NewExpense onAddExpense = {addExpenseHandler}></NewExpense>
+      <Expenses items = {expenses}></Expenses>
     </div>
   );
 };
