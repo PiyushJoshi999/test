@@ -1,7 +1,8 @@
 
 import React from 'react';
 //import Expenses from './Components/Expenses';
-import NewExpense from './Components/Expenses/NewExpense';
+//import NewExpense from './Components/Expenses/NewExpense';
+import NewButton from './Components/Expenses/NewButton';
 const App = () => {
   // const dummyExpenses = [
   //   { id : 'e1', title: 'Car Insurance', amount: 399, date: new Date(2022, 4, 24) },
@@ -36,7 +37,7 @@ const App = () => {
   return (
     <div>
       <h2>Expense Tracker</h2>
-      <NewExpense />
+      <NewButton />
     </div>
   );
 };

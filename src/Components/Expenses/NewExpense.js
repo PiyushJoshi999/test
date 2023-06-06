@@ -25,6 +25,7 @@ import React, { useState } from 'react';
 import ExpenseForm from './ExpenseForm';
 import ExpenseItem from '../ExpenseItem';
 import ExpenseFilter from '../ExpenseFilter';
+import ExpensesChart from '../ExpensesChart';
 
 const NewExpense = () => {
   const [expenseData, setExpenseData] = useState([]);
@@ -50,6 +51,7 @@ const NewExpense = () => {
   });
 
   let expensesContent = <p>No match found.</p>
+
   if(filteredExpenses.length > 0){
     expensesContent = filteredExpenses.map((expense) => (
       <ExpenseItem
@@ -65,6 +67,7 @@ const NewExpense = () => {
     <div>
        <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
        <ExpenseFilter selected = {filteredYear} onChange = {filterChangeHandler}  />
+       <ExpensesChart expenses = {filteredExpenses} />
       {expensesContent}
      </div>
 
