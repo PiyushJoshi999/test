@@ -22,9 +22,9 @@
 // export default NewExpense;
 
 import React, { useState } from 'react';
-import ExpenseForm from './Expenses/ExpenseForm';
-import ExpenseItem from './src/Components/ExpenseItem';
-import ExpenseFilter from './src/Components/ExpenseFilter';
+import ExpenseForm from './ExpenseForm';
+import ExpenseItem from '../ExpenseItem';
+import ExpenseFilter from '../ExpenseFilter';
 
 const NewExpense = () => {
   const [expenseData, setExpenseData] = useState([]);
@@ -49,24 +49,25 @@ const NewExpense = () => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
-  // return (
-  //   <div>
-  //   //   <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
-  //   //   <ExpenseFilter selected = {filteredYear} onChange = {filterChangeHandler}  />
-  //   //   {filteredExpenses.map((expense) => (
-  //   //     <ExpenseItem
-  //   //       key={expense.id}
-  //   //       title={expense.title}
-  //   //       amount={expense.amount}
-  //   //       date={expense.date}
-  //   //     />
-  //   //   ))}
-  //    </div>
+  let expensesContent = <p>No match found.</p>
+  if(filteredExpenses.length > 0){
+    expensesContent = filteredExpenses.map((expense) => (
+      <ExpenseItem
+        key={expense.id}
+        title={expense.title}
+        amount={expense.amount}
+        date={expense.date.toLocaleString()}
+      />
+    ));
+  }
 
-  return(
+  return (
     <div>
-      <p>Hello world</p>
-    </div>
+       <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+       <ExpenseFilter selected = {filteredYear} onChange = {filterChangeHandler}  />
+      {expensesContent}
+     </div>
+
   );
 };
 
