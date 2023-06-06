@@ -49,18 +49,23 @@ const NewExpense = () => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
-  return (
+  // return (
+  //   <div>
+  //   //   <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+  //   //   <ExpenseFilter selected = {filteredYear} onChange = {filterChangeHandler}  />
+  //   //   {filteredExpenses.map((expense) => (
+  //   //     <ExpenseItem
+  //   //       key={expense.id}
+  //   //       title={expense.title}
+  //   //       amount={expense.amount}
+  //   //       date={expense.date}
+  //   //     />
+  //   //   ))}
+  //    </div>
+
+  return(
     <div>
-      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
-      <ExpenseFilter selected = {filteredYear} onChange = {filterChangeHandler}  />
-      {filteredExpenses.map((expense) => (
-        <ExpenseItem
-          key={expense.id}
-          title={expense.title}
-          amount={expense.amount}
-          date={expense.date}
-        />
-      ))}
+      <p>Hello world</p>
     </div>
   );
 };
